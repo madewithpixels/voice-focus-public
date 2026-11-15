@@ -1,0 +1,3 @@
+/* Booking modal on Home and Voice Therapy Appointments. */
+#vf-booking-modal::backdrop{background:rgb(40 20 36 / 65%)}
+#vf-booking-modal :focus-visible{outline:3px solid #864571;outline-offset:3px}

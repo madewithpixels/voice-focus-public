@@ -1,0 +1,45 @@
+/* Voice Focus — site-wide custom CSS (Webflow site head). Served via jsDelivr; see src/README.md. */
+
+/* The Woven BG class keeps BG-Dummy.webp as a Designer preview only.
+   Custom code doesn't run in the Designer, so this hides it on the live site and the browser never downloads it.
+   The hero script sets its own poster inline when it needs one. */
+html .woven-bg{background-image:none}
+
+/* Keep the responsive menu trigger the same size and soften its colour change. */
+@media screen and (max-width: 991px) {
+  summary.mwp-css-nav_summary {
+    box-sizing: border-box;
+    width: 3.5rem;
+    height: 3.5rem;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    transition-property: background-color !important;
+    transition-duration: 180ms !important;
+    transition-timing-function: ease-in-out !important;
+    transition-delay: 0s !important;
+  }
+
+  details[open] > summary.mwp-css-nav_summary,
+  details[data-state="closing"] > summary.mwp-css-nav_summary {
+    background-color: var(--_colour---dark-plum) !important;
+  }
+}
+@media screen and (max-width: 479px) {
+  summary.mwp-css-nav_summary {
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    min-height: 3rem;
+  }
+}
+
+/* Safari on iOS (seen on iPad) draws the native disclosure triangle beside the nav menu icon,
+   because it ignores list-style on summary. Hide the WebKit marker on the nav's two summaries. */
+summary.mwp-css-nav_summary,
+summary.mwp-css-nav_settings-summary {
+  list-style: none;
+}
+summary.mwp-css-nav_summary::-webkit-details-marker,
+summary.mwp-css-nav_settings-summary::-webkit-details-marker {
+  display: none;
+}
