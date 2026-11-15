@@ -43,3 +43,49 @@ summary.mwp-css-nav_summary::-webkit-details-marker,
 summary.mwp-css-nav_settings-summary::-webkit-details-marker {
   display: none;
 }
+
+/* Skip link: first element in the Header component. Hidden off-screen until it takes keyboard focus. */
+.vf-skip-link {
+  position: fixed;
+  top: 0.75rem;
+  left: 0.75rem;
+  z-index: 10000;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.375rem;
+  background-color: #2a1e31;
+  color: #faf4f1;
+  font-weight: 600;
+  line-height: 1.3;
+  text-decoration: none;
+  transform: translateY(-200%);
+  transition: transform 150ms ease-out;
+}
+.vf-skip-link:focus,
+.vf-skip-link:focus-visible {
+  transform: translateY(0);
+  outline: 3px solid #e2957c;
+  outline-offset: 3px;
+}
+
+/* The skip link moves focus to <main id="main" tabindex="-1">. Programmatic focus on the
+   landmark needs no ring, because it is not an interactive control. */
+main:focus {
+  outline: none;
+}
+
+/* Respect the visitor's reduced-motion setting: no smooth scrolling, and the small
+   hover, menu and skip-link transitions become instant. The hero shader handles this in its own script. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+}
