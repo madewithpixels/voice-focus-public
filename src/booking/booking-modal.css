@@ -1,3 +1,5 @@
 /* Booking modal on Home and Voice Therapy Appointments. */
 #vf-booking-modal::backdrop{background:rgb(40 20 36 / 65%)}
 #vf-booking-modal :focus-visible{outline:3px solid #864571;outline-offset:3px}
+/* The booking iframe is created by the script, so Webflow publishes no CSS for the .vf-booking-frame class (nothing in the Designer uses it). Set it here: fill the panel under the title bar, no border. */
+.vf-booking-frame{display:block;width:100%;min-height:0;flex:1 1 0;border:0;background-color:#fff}
